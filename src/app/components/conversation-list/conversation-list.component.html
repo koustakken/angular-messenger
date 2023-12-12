@@ -1,16 +1,11 @@
 <div class="users-container">
 	<div class="chat-search-box">
 		<div class="input-group">
-			<input class="form-control" placeholder="Search">
-			<div class="input-group-btn">
-				<button type="button" class="btn btn-info">
-					<i class="fa fa-search"></i>
-				</button>
-			</div>
+			<input [(ngModel)]="searchTerm" class="form-control" placeholder="Search">
 		</div>
 	</div>
 	<ul class="users">
-		<li class="person" data-chat="person" *ngFor="let person of persons">
+		<li class="person" data-chat="person" *ngFor="let person of persons | conversationFilter:searchTerm">
 			<div class="user" [onlineStatus]="person.participants[1].last_seen === 'online'">
 				<img src="assets/img/avatar.png">
 			</div>

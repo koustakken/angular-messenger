@@ -9,6 +9,8 @@ import { ChatMessageComponent } from './components/chat-message/chat-message.com
 import { ConversationListComponent } from './components/conversation-list/conversation-list.component';
 // directives
 import { StatusDirective } from './directives/status.directive';
+import { ConversationFilterPipe } from './pipes/conversation-filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -16,11 +18,13 @@ import { StatusDirective } from './directives/status.directive';
 		ChatComponent,
 		ChatMessageComponent,
 		ConversationListComponent,
-		StatusDirective
+		StatusDirective,
+		ConversationFilterPipe
 	],
 	imports: [
 		BrowserModule,
-		AppRoutingModule
+		AppRoutingModule,
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

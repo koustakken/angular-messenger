@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { conversationListMock } from 'src/mocks/conversation-list.mock';
+import { BaseConversationModel } from 'src/models/conversation.model';
 
 @Component({
 	selector: 'app-conversation-list',
@@ -7,5 +8,6 @@ import { conversationListMock } from 'src/mocks/conversation-list.mock';
 	styleUrls: ['./conversation-list.component.scss']
 })
 export class ConversationListComponent {
-	persons = conversationListMock;
+	persons: BaseConversationModel[] = conversationListMock;
+	searchTerm: string = '';
 }
