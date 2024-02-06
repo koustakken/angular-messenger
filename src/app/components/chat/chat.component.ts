@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SelectedConversationModel } from 'src/models/conversation.model';
 
 @Component({
   selector: 'app-chat',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent {
-
+  @Input() selectedConversation: SelectedConversationModel | undefined;
 }
