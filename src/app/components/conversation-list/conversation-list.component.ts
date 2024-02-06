@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { conversationListMock } from 'src/mocks/conversation-list.mock';
 import { BaseConversationModel } from 'src/models/conversation.model';
 
@@ -10,4 +10,12 @@ import { BaseConversationModel } from 'src/models/conversation.model';
 export class ConversationListComponent {
 	persons: BaseConversationModel[] = conversationListMock;
 	searchTerm: string = '';
+	selectedConversationId: string = '';
+
+	@Output() selectConversation = new EventEmitter();
+
+	onSelectConversation(item: BaseConversationModel) {
+		this.selectedConversationId = item.id;
+		this.selectConversation.emit(item);
+	}
 }

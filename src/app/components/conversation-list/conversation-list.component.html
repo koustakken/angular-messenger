@@ -5,7 +5,13 @@
 		</div>
 	</div>
 	<ul class="users">
-		<li class="person" data-chat="person" *ngFor="let person of persons | conversationFilter:searchTerm">
+		<li 
+			class="person" 
+			[class.active-user]="person.id === selectedConversationId" 
+			data-chat="person" 
+			*ngFor="let person of persons | conversationFilter:searchTerm" 
+			(click)="onSelectConversation(person)"
+		>
 			<div class="user" [onlineStatus]="person.participants[1].last_seen === 'online'">
 				<img src="assets/img/avatar.png">
 			</div>
